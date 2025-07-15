@@ -8,7 +8,7 @@ st.markdown(
     html, body, .stApp {
         height: 100%;
         background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                          url("https://chat.openai.com/mnt/data/background.avif");
+                          url("https://i.imgur.com/Q7IeqgQ.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
