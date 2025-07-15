@@ -7,11 +7,11 @@ st.markdown(
     <style>
     html, body, .stApp {
         height: 100%;
-        background-image: url("https://i.imgur.com/Q7IeqgQ.jpeg");
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+                          url("https://i.imgur.com/Q7IeqgQ.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
-        background-repeat: no-repeat;
         color: white;
     }
 
