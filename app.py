@@ -5,17 +5,18 @@ import math
 st.markdown(
     """
     <style>
-    html, body, .stApp {
-        height: 100%;
+    .stApp {
         background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
                           url("https://i.imgur.com/Q7IeqgQ.jpeg");
         background-size: cover;
-        background-attachment: fixed;
         background-position: center;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        min-height: 100vh;
         color: white;
     }
 
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4 {
+    h1, h2, h3, h4, h5, h6, p, span, div {
         color: white;
     }
 
@@ -56,7 +57,8 @@ if menu == "Beranda":
     st.markdown("""
     Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
     Saatnya mahasiswa bergerak lebih digital di era Revolusi 4.0!  
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu dengan pendekatan teknologi yang efisien dan akurat.  
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu  
+    dengan pendekatan teknologi yang efisien dan akurat.  
     **ChemVerse** menggabungkan teknologi dan pendidikan untuk membawamu ke level baru dalam memahami dunia kimia.  
     Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.  
     **Semua perhitungan kimia kini bisa kamu lakukan dalam satu aplikasi.**
@@ -83,10 +85,12 @@ elif menu == "Tentang Aplikasi":
     *“Your Chemistry Universe in One App”*
 
     **📌 Deskripsi Singkat**  
-    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas. Dirancang untuk mempermudah perhitungan kimia sekaligus menjadi ruang eksplorasi konsep kimia dalam satu ekosistem terintegrasi.
+    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+    Dirancang untuk mempermudah perhitungan kimia sekaligus menjadi ruang eksplorasi konsep kimia dalam satu ekosistem terintegrasi.
 
     **🔍 Latar Belakang**  
-    Di era Revolusi Industri 4.0, integrasi teknologi dalam pendidikan dan industri kimia menjadi sebuah keharusan. ChemVerse hadir untuk menjawab tantangan tersebut dengan menghadirkan solusi perhitungan kimia yang cepat, akurat, dan berbasis teknologi digital. 
+    Di era Revolusi Industri 4.0, integrasi teknologi dalam pendidikan dan industri kimia menjadi sebuah keharusan.  
+    ChemVerse hadir untuk menjawab tantangan tersebut dengan menghadirkan solusi perhitungan kimia yang cepat, akurat, dan berbasis teknologi digital. 
 
     **🎯 Tujuan Aplikasi**  
     Aplikasi ini dibuat untuk:
