@@ -7,7 +7,7 @@ st.markdown(
     <style>
     .stApp {
         background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                          url("https://i.imgur.com/O1w6V2n.jpeg");
+                          url("https://i.ibb.co/r5SKtdK/chemverse-bg.jpg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
