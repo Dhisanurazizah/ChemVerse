@@ -6,8 +6,8 @@ st.markdown(
     """
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
-                          url("https://static.vecteezy.com/system/resources/previews/001/987/697/non_2x/abstract-hexagon-pattern-dark-blue-background-medical-and-science-concept-molecular-structures-free-vector.jpg");
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                          url("bg.jpg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -156,7 +156,7 @@ elif menu == "Persentase Konsentrasi":
             st.error("❌ Massa zat tidak boleh lebih besar dari massa larutan.")
 
 # ------------------ Footer ------------------
-st.markdown("---")
+st.markdown("<hr style='border-top: 1px solid white;'>", unsafe_allow_html=True)
 st.markdown(
     "<div style='text-align: center; color: white;'>© 2025 ChemVerse | Dibuat untuk Pembelajaran</div>",
     unsafe_allow_html=True
