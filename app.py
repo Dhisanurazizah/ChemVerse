@@ -7,7 +7,7 @@ st.markdown(
     <style>
     .stApp {
         background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-                          url("https://i.ibb.co/r5SKtdK/chemverse-bg.jpg");
+                          url("https://i.ibb.co/ZSHwBCr/lab-bg.jpg"); /* Ganti dengan direct link gambarmu */
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -44,12 +44,12 @@ menu = st.sidebar.selectbox(
     "📘 Menu Navigasi",
     [
         "Beranda",
-        "Tentang Kami",
-        "Tentang Aplikasi",
         "Hitung Mol",
         "Hitung pH",
         "Pengenceran Larutan",
-        "Persentase Konsentrasi"
+        "Persentase Konsentrasi",
+        "Tentang Kami",
+        "Tentang Aplikasi"
     ]
 )
 
@@ -59,57 +59,7 @@ if menu == "Beranda":
     st.markdown("""
     Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
     Saatnya mahasiswa bergerak lebih digital di era Revolusi 4.0!  
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu dengan pendekatan teknologi yang efisien dan akurat.  
     **ChemVerse** menggabungkan teknologi dan pendidikan untuk membawamu ke level baru dalam memahami dunia kimia.  
-    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.  
-    **Semua perhitungan kimia kini bisa kamu lakukan dalam satu aplikasi.**
-    """)
-
-# ------------------ Tentang Kami ------------------
-elif menu == "Tentang Kami":
-    st.subheader("👥 Tentang Kami")
-    st.markdown("""
-    **TIM PENYUSUN**  
-    *Kelompok 3 - 1 D*  
-    1. Andrian Prayugo (2460324)  
-    2. Dhisa Nur Azizah (2460358)  
-    3. Marcelino David Mangatur (2460411)  
-    4. Nabil Syafiq Suhendar (2460446)  
-    5. Sefina Zahra Pangestika (2460515)
-    """)
-
-# ------------------ Tentang Aplikasi ------------------
-elif menu == "Tentang Aplikasi":
-    st.subheader("📘 Tentang Aplikasi")
-    st.markdown("""
-    🧪 ChemVerse  
-    *“Your Chemistry Universe in One App”*
-
-    **📌 Deskripsi Singkat**  
-    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas. Dirancang untuk mempermudah perhitungan kimia sekaligus menjadi ruang eksplorasi konsep kimia dalam satu ekosistem terintegrasi.
-
-    **🔍 Latar Belakang**  
-    Di era Revolusi Industri 4.0, integrasi teknologi dalam pendidikan dan industri kimia menjadi sebuah keharusan. ChemVerse hadir untuk menjawab tantangan tersebut dengan menghadirkan solusi perhitungan kimia yang cepat, akurat, dan berbasis teknologi digital. 
-
-    **🎯 Tujuan Aplikasi**  
-    Aplikasi ini dibuat untuk:
-    1. Mempermudah proses perhitungan kimia dasar.
-    2. Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.
-    3. Menghemat waktu dalam kegiatan laboratorium.
-    4. Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
-    5. Mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
-
-    **⚙️ Fitur Unggulan ChemVerse**  
-    1. Perhitungan Molaritas  
-    2. Perhitungan pH  
-    3. Pengenceran Larutan  
-    4. Perhitungan Persentase Konsentrasi 
-
-    **🎯 Manfaat Aplikasi**  
-    1. Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
-    2. Menurunkan tingkat kesalahan hitung manual.  
-    3. Menghemat waktu dalam analisis kimia.  
-    4. Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
     """)
 
 # ------------------ Hitung Mol ------------------
@@ -130,6 +80,12 @@ elif menu == "Hitung pH":
     if h_concentration > 0:
         ph = -math.log10(h_concentration)
         st.success(f"pH = {ph:.2f}")
+        if ph < 7:
+            st.info("Larutan bersifat Asam")
+        elif ph == 7:
+            st.info("Larutan bersifat Netral")
+        else:
+            st.info("Larutan bersifat Basa")
 
 # ------------------ Pengenceran Larutan ------------------
 elif menu == "Pengenceran Larutan":
@@ -154,6 +110,27 @@ elif menu == "Persentase Konsentrasi":
             st.success(f"Persentase Konsentrasi = {persen:.2f}%")
         else:
             st.error("❌ Massa zat tidak boleh lebih besar dari massa larutan.")
+
+# ------------------ Tentang Kami ------------------
+elif menu == "Tentang Kami":
+    st.subheader("👥 Tentang Kami")
+    st.markdown("""
+    **TIM PENYUSUN**  
+    *Kelompok 3 - 1 D*  
+    1. Andrian Prayugo (2460324)  
+    2. Dhisa Nur Azizah (2460358)  
+    3. Marcelino David Mangatur (2460411)  
+    4. Nabil Syafiq Suhendar (2460446)  
+    5. Sefina Zahra Pangestika (2460515)
+    """)
+
+# ------------------ Tentang Aplikasi ------------------
+elif menu == "Tentang Aplikasi":
+    st.subheader("📘 Tentang Aplikasi")
+    st.markdown("""
+    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+    Dirancang untuk mempermudah perhitungan kimia dan eksplorasi konsep kimia secara praktis.  
+    """)
 
 # ------------------ Footer ------------------
 st.markdown("<hr style='border-top: 1px solid white;'>", unsafe_allow_html=True)
