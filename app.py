@@ -1,4 +1,3 @@
-
 import streamlit as st
 import math
 
@@ -161,4 +160,4 @@ st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: white;'>© 2025 ChemVerse | Dibuat untuk Pembelajaran</div>",
     unsafe_allow_html=True
-)
+    )
