@@ -13,38 +13,35 @@ st.markdown("""
         color: white;
     }
 
-    /* Judul dan subjudul */
     .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
         color: white !important;
     }
 
-    /* Label input dan teks umum */
-    label, .css-1544g2n, .css-10trblm, .stMarkdown {
+    label, .stTextInput label, .stNumberInput label, .stMarkdown {
         color: white !important;
     }
 
-    /* Input field */
+    /* Input box: angka hitam, background terang */
     input[type="number"], input[type="text"] {
-        color: white !important;
-        background-color: rgba(255,255,255,0.1) !important;
+        color: black !important;
+        background-color: rgba(255, 255, 255, 0.85) !important;
         border: 1px solid #ccc !important;
+        border-radius: 5px !important;
     }
 
-    /* Hasil perhitungan (success box) */
+    /* Output hasil */
     .stAlert-success {
         background-color: rgba(0, 128, 0, 0.7) !important;
         color: white !important;
         font-weight: bold;
     }
 
-    /* Pesan error */
     .stAlert-danger {
         background-color: rgba(255, 0, 0, 0.6) !important;
         color: white !important;
         font-weight: bold;
     }
 
-    /* Sidebar */
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
@@ -75,8 +72,8 @@ if menu == "Beranda":
     st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
     st.markdown("""
     Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu dengan pendekatan teknologi yang efisien dan akurat.  
-    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.  
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu.  
+    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu!
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -102,7 +99,7 @@ elif menu == "Tentang Aplikasi":
     - Pengenceran larutan
     - Persentase konsentrasi  
 
-    Dengan antarmuka yang sederhana dan dukungan teknologi digital, ChemVerse mempermudah pekerjaan laboratorium dan tugas kuliah kimia.
+    Dengan antarmuka sederhana dan dukungan teknologi digital, ChemVerse mempermudah pekerjaan laboratorium dan tugas kuliah kimia.
     """)
 
 # ------------------ Hitung Mol ------------------
