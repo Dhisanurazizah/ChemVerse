@@ -29,7 +29,6 @@ st.markdown("""
         border-radius: 5px !important;
     }
 
-    /* Output hasil */
     .stAlert-success {
         background-color: rgba(0, 128, 0, 0.7) !important;
         color: white !important;
@@ -42,9 +41,16 @@ st.markdown("""
         font-weight: bold;
     }
 
+    /* Sidebar background */
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
+    }
+
+    /* Label di sidebar termasuk "Menu Navigasi" */
+    section[data-testid="stSidebar"] label {
+        color: black !important;
+        font-weight: bold;
     }
 
     ul {
