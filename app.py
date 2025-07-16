@@ -14,10 +14,28 @@ st.markdown(
         color: white;
     }
 
-    .stApp h1, .stApp h2, .stApp h3, .stApp h4 {
-        color: #ffffff;
+    /* Judul dan header */
+    .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
+        color: #ffffff !important;
     }
 
+    /* Label input & teks lainnya */
+    label, .stTextInput label, .stNumberInput label, .css-1544g2n, .css-10trblm, .stMarkdown {
+        color: white !important;
+    }
+
+    /* Text dalam input box */
+    input {
+        color: white !important;
+        background-color: rgba(255, 255, 255, 0.05) !important;
+    }
+
+    /* Hasil output */
+    .stSuccess, .stMarkdown, .stText {
+        color: white !important;
+    }
+
+    /* Sidebar */
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
@@ -160,4 +178,4 @@ st.markdown("---")
 st.markdown(
     "<div style='text-align: center; color: white;'>© 2025 ChemVerse | Dibuat untuk Pembelajaran</div>",
     unsafe_allow_html=True
-    )
+)
