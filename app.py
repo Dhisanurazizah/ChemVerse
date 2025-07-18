@@ -96,16 +96,39 @@ elif menu == "👥 Tentang Kami":
 
 # ------------------ Tentang Aplikasi ------------------
 elif menu == "ℹ️ Tentang Aplikasi":
-    st.subheader("📘 Tentang Aplikasi")
+    st.subheader("🧪 ChemVerse")
     st.markdown("""
-    **ChemVerse** adalah aplikasi kalkulator kimia digital interaktif.  
-    Dirancang untuk membantu pelajar dan mahasiswa dalam menghitung:
-    - Mol
-    - pH
-    - Pengenceran larutan
-    - Persentase konsentrasi  
+    *“Your Chemistry Universe in One App”*
 
-    Dengan antarmuka sederhana dan dukungan teknologi digital, ChemVerse mempermudah pekerjaan laboratorium dan tugas kuliah kimia.
+    ---
+
+    ### 📌 Deskripsi
+    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+    Dirancang untuk mempermudah perhitungan kimia sekaligus menjadi ruang eksplorasi konsep kimia dalam satu ekosistem terintegrasi.
+
+    ### 🔍 Latar Belakang
+    Di era Revolusi Industri 4.0, integrasi teknologi dalam pendidikan dan industri kimia menjadi sebuah keharusan.  
+    ChemVerse hadir untuk menjawab tantangan tersebut dengan menghadirkan solusi perhitungan kimia yang cepat, akurat, dan berbasis teknologi digital. 
+
+    ### 🎯 Tujuan Aplikasi
+    Aplikasi ini dibuat untuk:
+    1. Mempermudah proses perhitungan kimia dasar.
+    2. Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.
+    3. Menghemat waktu dalam kegiatan laboratorium.
+    4. Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
+    5. Mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
+
+    ### ⚙️ Fitur Unggulan ChemVerse
+    1. Perhitungan Molaritas
+    2. Perhitungan pH
+    3. Pengenceran Larutan
+    4. Perhitungan Persentase Konsentrasi
+
+    ### 🎯 Manfaat Aplikasi
+    1. Membantu proses belajar dan praktikum secara mandiri maupun kelompok.
+    2. Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
+    3. Menghemat waktu dalam analisis kimia.
+    4. Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
     """)
 
 # ------------------ Hitung Mol ------------------
