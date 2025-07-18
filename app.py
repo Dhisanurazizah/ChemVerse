@@ -57,6 +57,11 @@ st.markdown("""
         color: black !important;
         font-weight: bold;
     }
+
+    /* === Ikon Share di pojok kanan atas jadi putih === */
+    button[title="Share this app"] svg {
+        fill: white !important;
+    }
     </style>
 """, unsafe_allow_html=True)
 
