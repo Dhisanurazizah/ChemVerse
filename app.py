@@ -5,7 +5,7 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
@@ -14,15 +14,15 @@ st.markdown("""
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
-    .stApp h1, h2, h3, h4, h5 { color: white !important; }
+    h1, h2, h3, h4, h5 { color: white !important; }
     label, .stMarkdown { color: white !important; }
     input[type="number"], input[type="text"] {
         color: black !important;
-        background-color: rgba(255,255,255,0.85) !important;
+        background-color: rgba(255,255,255,0.9) !important;
         border-radius: 5px !important;
     }
     .custom-output {
-        background-color: rgba(255, 255, 255, 0.85);
+        background-color: rgba(255, 255, 255, 0.9);
         color: black;
         font-weight: bold;
         padding: 10px;
@@ -32,12 +32,19 @@ st.markdown("""
         margin-top: 10px;
     }
     [data-testid="stSidebar"] {
-        background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5); /* Modern Blue Gradient */
-        color: white;
+        background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
+        color: black;
     }
-    [data-testid="stSidebar"] .css-1d391kg, [data-testid="stSidebar"] .css-1v0mbdj {
-        color: white !important; /* Menu Navigasi text */
+    .stButton button {
+        background-color: #00ccff;
+        color: black;
+        border-radius: 8px;
+        padding: 0.5em 1em;
         font-weight: bold;
+    }
+    .stButton button:hover {
+        background-color: #0099cc;
+        color: white;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -62,7 +69,7 @@ if menu == "🏠 Beranda":
     st.markdown("""
     Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
     Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu.  
-    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
+    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikum.
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -106,39 +113,108 @@ elif menu == "ℹ️ Tentang Aplikasi":
         - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.  
         - Menghemat waktu dalam kegiatan laboratorium.
         - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
-        - Untuk mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
         """)
 
     elif tab == "⚙️ Fitur":
         st.markdown("""
-        1. Perhitungan Molaritas 
-        2. Perhitungan pH
-        3. Pengenceran Larutan 
-        4. Perhitungan Persentase Konsentrasi 
+        1. Perhitungan Molaritas  
+        2. Perhitungan pH  
+        3. Pengenceran Larutan  
+        4. Perhitungan Persentase Konsentrasi
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
         - Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
-        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
-        - Menghemat waktu dalam analisis kimia.   
-        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
+        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.  
+        - Menghemat waktu dalam analisis kimia.  
         """)
 
 # ------------------ Hitung Mol ------------------
 elif menu == "🧪 Hitung Mol":
     st.header("🔹 Hitung Mol")
     st.markdown("*Rumus:* mol = massa / Mr")
-    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0)
-    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01)
-    if st.button("Hitung"):
-        if massa > 0 and mr > 0:
+
+    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0, step=0.1, key="mol_massa")
+    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01, step=0.1, key="mol_mr")
+    col1, col2 = st.columns(2)
+
+    if col1.button("Hitung"):
+        if massa == 0 or mr == 0:
+            st.warning("⚠️ Mohon masukkan nilai massa dan Mr yang valid.")
+        else:
             mol = massa / mr
             st.markdown(f"<div class='custom-output'>Mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset"):
+        st.session_state["mol_massa"] = 0.0
+        st.session_state["mol_mr"] = 0.01
+        st.rerun()
+
+# ------------------ Hitung pH ------------------
+elif menu == "🧫 Hitung pH":
+    st.header("🔹 Hitung pH")
+    st.markdown("*Rumus:* pH = -log[H⁺]")
+
+    h_conc = st.number_input("Konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f", key="ph_hconc")
+    col1, col2 = st.columns(2)
+
+    if col1.button("Hitung"):
+        if h_conc <= 0:
+            st.warning("⚠️ Masukkan konsentrasi ion H⁺ yang lebih besar dari 0.")
         else:
-            st.warning("Masukkan nilai yang valid untuk massa dan Mr.")
-    if st.button("Reset"):
-        st.experimental_rerun()
+            ph = -math.log10(h_conc)
+            st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset"):
+        st.session_state["ph_hconc"] = 0.0
+        st.rerun()
+
+# ------------------ Pengenceran ------------------
+elif menu == "💧 Pengenceran Larutan":
+    st.header("🔹 Pengenceran Larutan")
+    st.markdown("*Rumus:* M₁V₁ = M₂V₂")
+
+    m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0, key="peng_m1")
+    v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0, key="peng_v1")
+    m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01, key="peng_m2")
+    col1, col2 = st.columns(2)
+
+    if col1.button("Hitung"):
+        if m1 == 0 or v1 == 0 or m2 == 0:
+            st.warning("⚠️ Semua nilai harus diisi dengan benar.")
+        else:
+            v2 = (m1 * v1) / m2
+            st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset"):
+        st.session_state["peng_m1"] = 0.0
+        st.session_state["peng_v1"] = 0.0
+        st.session_state["peng_m2"] = 0.01
+        st.rerun()
+
+# ------------------ Persentase Konsentrasi ------------------
+elif menu == "📊 Persentase Konsentrasi":
+    st.header("🔹 Persentase Konsentrasi")
+    st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
+
+    massa_zat = st.number_input("Massa zat (gram)", min_value=0.0, key="persen_mz")
+    massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01, key="persen_ml")
+    col1, col2 = st.columns(2)
+
+    if col1.button("Hitung"):
+        if massa_zat == 0 or massa_larutan == 0:
+            st.warning("⚠️ Masukkan nilai massa zat dan massa larutan yang valid.")
+        elif massa_zat > massa_larutan:
+            st.warning("❌ Massa zat tidak boleh lebih besar dari massa larutan.")
+        else:
+            persen = (massa_zat / massa_larutan) * 100
+            st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset"):
+        st.session_state["persen_mz"] = 0.0
+        st.session_state["persen_ml"] = 0.01
+        st.rerun()
 
 # ------------------ Footer ------------------
 st.markdown("---")
