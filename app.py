@@ -147,8 +147,9 @@ elif menu == "🧪 Hitung Mol":
             st.markdown(f"<div class='custom-output'>Mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
 
     if col2.button("Reset"):
-        st.session_state["mol_massa"] = 0.0
-        st.session_state["mol_mr"] = 0.01
+        for key in ["mol_massa", "mol_mr"]:
+            if key in st.session_state:
+                del st.session_state[key]
         st.rerun()
 
 # ------------------ Hitung pH ------------------
@@ -167,7 +168,8 @@ elif menu == "🧫 Hitung pH":
             st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
 
     if col2.button("Reset"):
-        st.session_state["ph_hconc"] = 0.0
+        if "ph_hconc" in st.session_state:
+            del st.session_state["ph_hconc"]
         st.rerun()
 
 # ------------------ Pengenceran ------------------
@@ -188,9 +190,9 @@ elif menu == "💧 Pengenceran Larutan":
             st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
 
     if col2.button("Reset"):
-        st.session_state["peng_m1"] = 0.0
-        st.session_state["peng_v1"] = 0.0
-        st.session_state["peng_m2"] = 0.01
+        for key in ["peng_m1", "peng_v1", "peng_m2"]:
+            if key in st.session_state:
+                del st.session_state[key]
         st.rerun()
 
 # ------------------ Persentase Konsentrasi ------------------
@@ -212,8 +214,9 @@ elif menu == "📊 Persentase Konsentrasi":
             st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
 
     if col2.button("Reset"):
-        st.session_state["persen_mz"] = 0.0
-        st.session_state["persen_ml"] = 0.01
+        for key in ["persen_mz", "persen_ml"]:
+            if key in st.session_state:
+                del st.session_state[key]
         st.rerun()
 
 # ------------------ Footer ------------------
