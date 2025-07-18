@@ -5,13 +5,13 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
         color: white;
-        font-family: 'Arial', sans-serif;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
@@ -19,18 +19,28 @@ st.markdown("""
     label, .stMarkdown { color: white !important; }
     input[type="number"], input[type="text"] {
         color: black !important;
-        background-color: rgba(255,255,255,0.85) !important;
+        background-color: rgba(255,255,255,0.9) !important;
         border-radius: 5px !important;
     }
     .stButton button {
-        background-color: black !important;
+        background-color: #004d40 !important;
         color: white !important;
         border-radius: 8px !important;
         padding: 0.4rem 1rem !important;
         font-weight: bold;
     }
     .stButton button:hover {
-        background-color: #333 !important;
+        background-color: #00695c !important;
+    }
+    .reset-btn button {
+        background-color: #c62828 !important;
+        color: white !important;
+        border-radius: 8px !important;
+        padding: 0.4rem 1rem !important;
+        font-weight: bold;
+    }
+    .reset-btn button:hover {
+        background-color: #b71c1c !important;
     }
     .custom-output {
         background-color: rgba(255, 255, 255, 0.85);
@@ -38,12 +48,12 @@ st.markdown("""
         font-weight: bold;
         padding: 10px;
         border-radius: 10px;
-        border: 2px solid #007acc;
+        border: 2px solid #009688;
         text-align: center;
         margin-top: 10px;
     }
     [data-testid="stSidebar"] {
-        background-image: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
+        background-image: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
         color: black;
     }
     </style>
@@ -136,48 +146,75 @@ elif menu == "ℹ️ Tentang Aplikasi":
 elif menu == "🧪 Hitung Mol":
     st.header("🔹 Hitung Mol")
     st.markdown("*Rumus:* mol = massa / Mr")
-    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0)
-    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01)
-    if st.button("Hitung"):
-        if massa > 0 and mr > 0:
+    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0, key="massa")
+    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01, key="mr")
+    
+    col1, col2 = st.columns(2)
+    if col1.button("Hitung"):
+        if massa == 0 or mr == 0:
+            st.warning("⚠️ Masukkan semua nilai dengan benar sebelum menghitung.")
+        else:
             mol = massa / mr
             st.markdown(f"<div class='custom-output'>Mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset", key="reset_mol"):
+        st.experimental_rerun()
 
 # ------------------ Hitung pH ------------------
 elif menu == "🧫 Hitung pH":
     st.header("🔹 Hitung pH")
     st.markdown("*Rumus:* pH = -log[H⁺]")
-    h_conc = st.number_input("Konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f")
-    if st.button("Hitung"):
-        if h_conc > 0:
+    h_conc = st.number_input("Konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f", key="h_conc")
+    
+    col1, col2 = st.columns(2)
+    if col1.button("Hitung"):
+        if h_conc <= 0:
+            st.warning("⚠️ Konsentrasi H⁺ harus lebih besar dari 0.")
+        else:
             ph = -math.log10(h_conc)
             st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset", key="reset_ph"):
+        st.experimental_rerun()
 
 # ------------------ Pengenceran ------------------
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
     st.markdown("*Rumus:* M₁V₁ = M₂V₂")
-    m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0)
-    v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0)
-    m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01)
-    if st.button("Hitung"):
-        if m1 > 0 and v1 > 0 and m2 > 0:
+    m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0, key="m1")
+    v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0, key="v1")
+    m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01, key="m2")
+    
+    col1, col2 = st.columns(2)
+    if col1.button("Hitung"):
+        if m1 == 0 or v1 == 0 or m2 == 0:
+            st.warning("⚠️ Masukkan semua nilai dengan benar sebelum menghitung.")
+        else:
             v2 = (m1 * v1) / m2
             st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset", key="reset_pengenceran"):
+        st.experimental_rerun()
 
 # ------------------ Persentase Konsentrasi ------------------
 elif menu == "📊 Persentase Konsentrasi":
     st.header("🔹 Persentase Konsentrasi")
     st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
-    massa_zat = st.number_input("Massa zat (gram)", min_value=0.0)
-    massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01)
-    if st.button("Hitung"):
-        if massa_zat > 0 and massa_larutan > 0:
-            if massa_zat <= massa_larutan:
-                persen = (massa_zat / massa_larutan) * 100
-                st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
-            else:
-                st.markdown("<div class='custom-output' style='border-color: red;'>❌ Massa zat tidak boleh lebih besar dari massa larutan.</div>", unsafe_allow_html=True)
+    massa_zat = st.number_input("Massa zat (gram)", min_value=0.0, key="massa_zat")
+    massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01, key="massa_larutan")
+    
+    col1, col2 = st.columns(2)
+    if col1.button("Hitung"):
+        if massa_zat == 0 or massa_larutan == 0:
+            st.warning("⚠️ Masukkan semua nilai dengan benar sebelum menghitung.")
+        elif massa_zat > massa_larutan:
+            st.warning("⚠️ Massa zat tidak boleh lebih besar dari massa larutan.")
+        else:
+            persen = (massa_zat / massa_larutan) * 100
+            st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
+
+    if col2.button("Reset", key="reset_konsentrasi"):
+        st.experimental_rerun()
 
 # ------------------ Footer ------------------
 st.markdown("---")
