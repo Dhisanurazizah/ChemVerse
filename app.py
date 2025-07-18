@@ -5,23 +5,20 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
+        background-image: linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
         color: black;
     }
+
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
 
-    .stApp h1, h2, h3, h4, h5 { color: black !important; }
-    .stMarkdown, label { color: black !important; }
+    h1, h2, h3, h4, h5 { color: black !important; }
 
-    section[data-testid="stSidebar"] label {
-        color: black !important;
-        font-weight: bold;
-    }
+    label, .stMarkdown, .css-10trblm, .css-1y4p8pa { color: black !important; }
 
     input[type="number"], input[type="text"] {
         color: black !important;
@@ -40,17 +37,24 @@ st.markdown("""
         margin-top: 10px;
     }
 
+    /* Sidebar styling */
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
     }
+
+    [data-testid="stSidebar"] label,
+    [data-testid="stSidebar"] .css-17eq0hr {
+        color: black !important;
+        font-weight: bold;
+    }
     </style>
 """, unsafe_allow_html=True)
 
-# ------------------ Judul Aplikasi ------------------
+# ------------------ Judul ------------------
 st.title("🧪 ChemVerse (Kalkulator Kimia Digital)")
 
-# ------------------ Menu Navigasi ------------------
+# ------------------ Navigasi Sidebar ------------------
 menu = st.sidebar.selectbox("📘 Menu Navigasi", [
     "🏠 Beranda",
     "👥 Tentang Kami",
@@ -63,11 +67,11 @@ menu = st.sidebar.selectbox("📘 Menu Navigasi", [
 
 # ------------------ Halaman Beranda ------------------
 if menu == "🏠 Beranda":
-    st.header("Selamat datang di ChemVerse 🎉")
+    st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
     st.markdown("""
-    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
+    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas dan praktis.  
     Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu.  
-    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu!
+    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -96,7 +100,7 @@ elif menu == "ℹ️ Tentang Aplikasi":
     if tab == "🧪 Deskripsi":
         st.markdown("""
         ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
-        Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi secara cepat dan akurat.
+        Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi dengan cepat dan akurat.
         """)
 
     elif tab == "🔍 Latar Belakang":
@@ -107,11 +111,11 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     elif tab == "🎯 Tujuan":
         st.markdown("""
-        - Mempermudah perhitungan kimia dasar  
-        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi  
-        - Menghemat waktu dalam kegiatan laboratorium  
-        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa  
-        - Mendukung pelajar, dosen, dan profesional industri memahami dan menerapkan konsep kimia secara efisien dan intuitif
+        - Mempermudah perhitungan kimia dasar.  
+        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.  
+        - Menghemat waktu dalam kegiatan laboratorium.  
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.  
+        - Mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
         """)
 
     elif tab == "⚙️ Fitur":
@@ -119,15 +123,15 @@ elif menu == "ℹ️ Tentang Aplikasi":
         1. Perhitungan Molaritas  
         2. Perhitungan pH  
         3. Pengenceran Larutan  
-        4. Persentase Konsentrasi  
+        4. Perhitungan Persentase Konsentrasi  
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
-        - Membantu proses belajar dan praktikum secara mandiri maupun kelompok  
-        - Mengurangi kesalahan hitung manual  
-        - Menghemat waktu dalam analisis kimia  
-        - Mendorong penggunaan teknologi digital di bidang pendidikan dan industri kimia  
+        - Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
+        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan lebih akurat.  
+        - Menghemat waktu dalam analisis kimia.  
+        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
         """)
 
 # ------------------ Hitung Mol ------------------
@@ -147,7 +151,7 @@ elif menu == "🧫 Hitung pH":
         ph = -math.log10(h_conc)
         st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
 
-# ------------------ Pengenceran Larutan ------------------
+# ------------------ Pengenceran ------------------
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
     m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0)
