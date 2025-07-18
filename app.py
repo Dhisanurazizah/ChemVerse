@@ -5,12 +5,12 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)),
+        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
-        color: #f5f5f5;
+        color: white;
     }
 
     header[data-testid="stHeader"] {
@@ -22,35 +22,34 @@ st.markdown("""
     }
 
     .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
-        color: #fdfdfd !important;
+        color: white !important;
     }
 
     label, .stTextInput label, .stNumberInput label, .stMarkdown {
-        color: #f0f0f0 !important;
-        font-weight: 500;
+        color: white !important;
     }
 
     input[type="number"], input[type="text"] {
         color: black !important;
-        background-color: rgba(255, 255, 255, 0.95) !important;
-        border: 1px solid #bbb !important;
-        border-radius: 8px !important;
+        background-color: rgba(255, 255, 255, 0.85) !important;
+        border: 1px solid #ccc !important;
+        border-radius: 5px !important;
     }
 
     .stAlert-success {
-        background-color: rgba(0, 180, 0, 0.8) !important;
+        background-color: rgba(0, 128, 0, 0.7) !important;
         color: white !important;
         font-weight: bold;
     }
 
     .stAlert-danger {
-        background-color: rgba(220, 0, 0, 0.8) !important;
+        background-color: rgba(255, 0, 0, 0.6) !important;
         color: white !important;
         font-weight: bold;
     }
 
     [data-testid="stSidebar"] {
-        background-image: linear-gradient(135deg, #ffffff 0%, #cce5ff 100%);
+        background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
     }
 
@@ -164,6 +163,6 @@ elif menu == "📊 Persentase Konsentrasi":
 # ------------------ Footer ------------------
 st.markdown("---")
 st.markdown(
-    "<div style='text-align: center; color: #f5f5f5;'>© 2025 ChemVerse | Dibuat untuk Pembelajaran</div>",
+    "<div style='text-align: center; color: white;'>© 2025 ChemVerse | Dibuat untuk Pembelajaran</div>",
     unsafe_allow_html=True
 )
