@@ -1,12 +1,11 @@
 import streamlit as st
 import math
 
-# ------------------ Styling CSS ------------------
+# ------------------ Styling Modern ------------------
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
-                          url("https://i.imgur.com/BSBUvyu.jpeg");
+        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
@@ -15,7 +14,7 @@ st.markdown("""
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
-    .stApp h1, h2, h3, h4, h5 { color: white !important; }
+    h1, h2, h3, h4, h5 { color: white !important; }
     label, .stMarkdown { color: white !important; }
     input[type="number"], input[type="text"] {
         color: black !important;
@@ -23,6 +22,12 @@ st.markdown("""
         border-radius: 8px !important;
         padding: 6px !important;
         border: 1px solid #00ccff !important;
+    }
+    .stButton>button {
+        background-color: black !important;
+        color: white !important;
+        border-radius: 8px !important;
+        padding: 0.5rem 1rem !important;
     }
     .custom-output {
         background-color: rgba(255, 255, 255, 0.9);
@@ -33,12 +38,6 @@ st.markdown("""
         border: 2px solid #00ccff;
         text-align: center;
         margin-top: 12px;
-    }
-    .reset-btn {
-        background-color: #ff6666 !important;
-        color: white !important;
-        border-radius: 8px !important;
-        margin-top: 10px;
     }
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
@@ -85,43 +84,37 @@ elif menu == "👥 Tentang Kami":
 # ------------------ Tentang Aplikasi ------------------
 elif menu == "ℹ️ Tentang Aplikasi":
     st.subheader("📘 Tentang Aplikasi - ChemVerse")
-    tab = st.tabs(["🧪 Deskripsi", "🔍 Latar Belakang", "🎯 Tujuan", "⚙️ Fitur", "🌟 Manfaat"])
-
-    with tab[0]:
-        st.markdown("""
-        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
-        Dirancang untuk membantu perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi secara cepat dan akurat.
-        """)
-
-    with tab[1]:
-        st.markdown("""
-        Di era Revolusi Industri 4.0, integrasi teknologi ke dalam pendidikan dan laboratorium sangat penting.  
-        ChemVerse hadir sebagai solusi untuk mempercepat perhitungan kimia dasar secara digital.
-        """)
-
-    with tab[2]:
-        st.markdown("""
-        - Mempermudah perhitungan kimia dasar  
-        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi  
-        - Menghemat waktu dalam kegiatan laboratorium  
-        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa  
-        """)
-
-    with tab[3]:
-        st.markdown("""
-        1. Perhitungan Molaritas  
-        2. Perhitungan pH  
-        3. Pengenceran Larutan  
-        4. Perhitungan Persentase Konsentrasi  
-        """)
-
-    with tab[4]:
-        st.markdown("""
-        - Membantu proses belajar dan praktikum mandiri maupun kelompok  
-        - Menurunkan tingkat kesalahan hitung manual  
-        - Menghemat waktu dalam analisis kimia  
-        - Mendorong adaptasi teknologi digital di pendidikan dan industri  
-        """)
+    st.markdown("### 🧪 Deskripsi Aplikasi")
+    st.markdown("""
+    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+    Dirancang untuk membantu perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi secara cepat dan akurat.
+    """)
+    st.markdown("### 🔍 Latar Belakang")
+    st.markdown("""
+    Di era Revolusi Industri 4.0, integrasi teknologi ke dalam pendidikan dan laboratorium sangat penting.  
+    ChemVerse hadir sebagai solusi untuk mempercepat perhitungan kimia dasar secara digital.
+    """)
+    st.markdown("### 🎯 Tujuan")
+    st.markdown("""
+    - Mempermudah perhitungan kimia dasar  
+    - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi  
+    - Menghemat waktu dalam kegiatan laboratorium  
+    - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa
+    """)
+    st.markdown("### ⚙️ Fitur Aplikasi")
+    st.markdown("""
+    1. Perhitungan Molaritas  
+    2. Perhitungan pH  
+    3. Pengenceran Larutan  
+    4. Perhitungan Persentase Konsentrasi
+    """)
+    st.markdown("### 🌟 Manfaat")
+    st.markdown("""
+    - Membantu proses belajar dan praktikum mandiri maupun kelompok  
+    - Menurunkan tingkat kesalahan hitung manual  
+    - Menghemat waktu dalam analisis kimia  
+    - Mendorong adaptasi teknologi digital di pendidikan dan industri
+    """)
 
 # ------------------ Hitung Mol ------------------
 elif menu == "🧪 Hitung Mol":
@@ -135,7 +128,6 @@ elif menu == "🧪 Hitung Mol":
         else:
             mol = massa / mr
             st.markdown(f"<div class='custom-output'>Mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
-    st.button("Reset", type="primary", key="reset_mol")
 
 # ------------------ Hitung pH ------------------
 elif menu == "🧫 Hitung pH":
@@ -148,7 +140,6 @@ elif menu == "🧫 Hitung pH":
         else:
             ph = -math.log10(h_conc)
             st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
-    st.button("Reset", type="primary", key="reset_ph")
 
 # ------------------ Pengenceran ------------------
 elif menu == "💧 Pengenceran Larutan":
@@ -163,7 +154,6 @@ elif menu == "💧 Pengenceran Larutan":
         else:
             v2 = (m1 * v1) / m2
             st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
-    st.button("Reset", type="primary", key="reset_pengenceran")
 
 # ------------------ Persentase Konsentrasi ------------------
 elif menu == "📊 Persentase Konsentrasi":
@@ -179,7 +169,6 @@ elif menu == "📊 Persentase Konsentrasi":
         else:
             persen = (massa_zat / massa_larutan) * 100
             st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
-    st.button("Reset", type="primary", key="reset_persen")
 
 # ------------------ Footer ------------------
 st.markdown("---")
