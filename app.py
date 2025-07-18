@@ -5,22 +5,30 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+        background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
-        color: white;
+        color: black;
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
-    .stApp h1, h2, h3, h4, h5 { color: white !important; }
-    label, .stMarkdown { color: white !important; }
+
+    .stApp h1, h2, h3, h4, h5 { color: black !important; }
+    .stMarkdown, label { color: black !important; }
+
+    section[data-testid="stSidebar"] label {
+        color: black !important;
+        font-weight: bold;
+    }
+
     input[type="number"], input[type="text"] {
         color: black !important;
         background-color: rgba(255,255,255,0.85) !important;
         border-radius: 5px !important;
     }
+
     .custom-output {
         background-color: rgba(255, 255, 255, 0.85);
         color: black;
@@ -31,6 +39,7 @@ st.markdown("""
         text-align: center;
         margin-top: 10px;
     }
+
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
@@ -38,10 +47,10 @@ st.markdown("""
     </style>
 """, unsafe_allow_html=True)
 
-# ------------------ Judul ------------------
+# ------------------ Judul Aplikasi ------------------
 st.title("🧪 ChemVerse (Kalkulator Kimia Digital)")
 
-# ------------------ Navigasi Sidebar ------------------
+# ------------------ Menu Navigasi ------------------
 menu = st.sidebar.selectbox("📘 Menu Navigasi", [
     "🏠 Beranda",
     "👥 Tentang Kami",
@@ -54,11 +63,11 @@ menu = st.sidebar.selectbox("📘 Menu Navigasi", [
 
 # ------------------ Halaman Beranda ------------------
 if menu == "🏠 Beranda":
-    st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
+    st.header("Selamat datang di ChemVerse 🎉")
     st.markdown("""
-    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat,cerdas dan praktis. 
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan,praktikum dan penelitian kimiamu.
-    Yuk,manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
+    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu.  
+    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu!
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -86,8 +95,8 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     if tab == "🧪 Deskripsi":
         st.markdown("""
-        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif,inovatif, dan cerdas.  
-        Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi dengan cepat dan akurat.
+        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+        Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi secara cepat dan akurat.
         """)
 
     elif tab == "🔍 Latar Belakang":
@@ -98,27 +107,27 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     elif tab == "🎯 Tujuan":
         st.markdown("""
-        - Mempermudah perhitungan kimia dasar.  
-        - Meningkatkan pemahaman konsep mol,ph,pengenceran, dan konsentrasi.  
-        - Menghemat waktu dalam kegiatan laboratorium.
-        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
-        - Untuk mendukung pelajar,mahasiswa,dosen,dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuintif.
+        - Mempermudah perhitungan kimia dasar  
+        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi  
+        - Menghemat waktu dalam kegiatan laboratorium  
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa  
+        - Mendukung pelajar, dosen, dan profesional industri memahami dan menerapkan konsep kimia secara efisien dan intuitif
         """)
 
     elif tab == "⚙️ Fitur":
         st.markdown("""
-        1. Perhitungan Molaritas 
-        2. Perhitungan pH
-        3. Pengenceran Larutan 
-        4. Perhitungan Persentase Konsentrasi 
+        1. Perhitungan Molaritas  
+        2. Perhitungan pH  
+        3. Pengenceran Larutan  
+        4. Persentase Konsentrasi  
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
-        - Membantu proses belajar dan praktikum secara  mandiri maupun kelompok.  
-        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
-        - Menghemat waktu dalam analisis kimia.   
-        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industi kimia.
+        - Membantu proses belajar dan praktikum secara mandiri maupun kelompok  
+        - Mengurangi kesalahan hitung manual  
+        - Menghemat waktu dalam analisis kimia  
+        - Mendorong penggunaan teknologi digital di bidang pendidikan dan industri kimia  
         """)
 
 # ------------------ Hitung Mol ------------------
@@ -138,7 +147,7 @@ elif menu == "🧫 Hitung pH":
         ph = -math.log10(h_conc)
         st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
 
-# ------------------ Pengenceran ------------------
+# ------------------ Pengenceran Larutan ------------------
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
     m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0)
@@ -163,6 +172,6 @@ elif menu == "📊 Persentase Konsentrasi":
 # ------------------ Footer ------------------
 st.markdown("---")
 st.markdown(
-    "<div style='text-align: center; color: white;'>© 2025 ChemVerse | Dibuat oleh Kelompok 3</div>",
+    "<div style='text-align: center; color: black;'>© 2025 ChemVerse | Dibuat oleh Kelompok 3</div>",
     unsafe_allow_html=True
 )
