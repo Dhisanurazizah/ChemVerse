@@ -111,7 +111,6 @@ elif menu == "ℹ️ Tentang Aplikasi":
     # Tambahan versi lengkap
     st.markdown("""
     ---
-
     ### 🧪 ChemVerse  
     *“Your Chemistry Universe in One App”*
 
