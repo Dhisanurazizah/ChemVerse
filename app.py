@@ -4,10 +4,6 @@ import math
 # ------------------ Styling CSS ------------------
 st.markdown("""
     <style>
-    .block-container {
-        padding-top: 0rem; /* Hapus padding atas */
-    }
-
     .stApp {
         background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
