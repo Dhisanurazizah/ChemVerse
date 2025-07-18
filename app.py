@@ -57,7 +57,8 @@ if menu == "🏠 Beranda":
     st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
     st.markdown("""
     Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat,cerdas dan praktis. 
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan,praktikum dan penelitian kimiamu. Yuk,manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan,praktikum dan penelitian kimiamu. 
+    Yuk,manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
     """)
 
 # ------------------ Tentang Kami ------------------
