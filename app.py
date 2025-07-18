@@ -11,6 +11,7 @@ st.markdown("""
         background-attachment: fixed;
         background-position: center;
         color: white;
+        font-family: 'Arial', sans-serif;
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
@@ -25,7 +26,8 @@ st.markdown("""
         background-color: black !important;
         color: white !important;
         border-radius: 8px !important;
-        padding: 0.5rem 1rem !important;
+        padding: 0.4rem 1rem !important;
+        font-weight: bold;
     }
     .stButton button:hover {
         background-color: #333 !important;
@@ -36,12 +38,12 @@ st.markdown("""
         font-weight: bold;
         padding: 10px;
         border-radius: 10px;
-        border: 2px solid #00ccff;
+        border: 2px solid #007acc;
         text-align: center;
         margin-top: 10px;
     }
     [data-testid="stSidebar"] {
-        background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
+        background-image: linear-gradient(135deg, #e0f7fa 0%, #b2ebf2 100%);
         color: black;
     }
     </style>
