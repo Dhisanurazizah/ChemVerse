@@ -54,10 +54,10 @@ menu = st.sidebar.selectbox("📘 Menu Navigasi", [
 
 # ------------------ Halaman Beranda ------------------
 if menu == "🏠 Beranda":
-    st.header("Selamat datang di ChemVerse 🎉")
+    st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
     st.markdown("""
-    ChemVerse hadir sebagai sahabat kimia kamu.  
-    Nikmati kemudahan menghitung mol, pH, pengenceran, dan konsentrasi secara cepat dan akurat.
+    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat,cerdas dan praktis. 
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan,praktikum dan penelitian kimiamu. Yuk,manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
     """)
 
 # ------------------ Tentang Kami ------------------
