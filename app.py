@@ -96,11 +96,24 @@ elif menu == "👥 Tentang Kami":
 
 # ------------------ Tentang Aplikasi ------------------
 elif menu == "ℹ️ Tentang Aplikasi":
-    st.subheader("🧪 ChemVerse")
+    st.subheader("📘 Tentang Aplikasi")
     st.markdown("""
-    *“Your Chemistry Universe in One App”*
+    **ChemVerse** adalah aplikasi kalkulator kimia digital interaktif.  
+    Dirancang untuk membantu pelajar dan mahasiswa dalam menghitung:
+    - Mol
+    - pH
+    - Pengenceran larutan
+    - Persentase konsentrasi  
 
+    Dengan antarmuka sederhana dan dukungan teknologi digital, ChemVerse mempermudah pekerjaan laboratorium dan tugas kuliah kimia.
+    """)
+
+    # Tambahan versi lengkap
+    st.markdown("""
     ---
+
+    ### 🧪 ChemVerse  
+    *“Your Chemistry Universe in One App”*
 
     ### 📌 Deskripsi
     ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
