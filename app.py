@@ -60,7 +60,8 @@ menu = st.sidebar.selectbox("📘 Menu Navigasi", [
     "🧪 Hitung Mol",
     "🧫 Hitung pH",
     "💧 Pengenceran Larutan",
-    "📊 Persentase Konsentrasi"
+    "📊 Persentase Konsentrasi",
+    "🧠 Kuis Kimia"
 ])
 
 # ------------------ Halaman Beranda ------------------
@@ -218,6 +219,51 @@ elif menu == "📊 Persentase Konsentrasi":
             if key in st.session_state:
                 del st.session_state[key]
         st.rerun()
+
+# ------------------ Kuis Kimia ------------------
+elif menu == "🧠 Kuis Kimia":
+    st.header("🧠 Kuis Kimia Dasar")
+    st.markdown("Jawab pertanyaan berikut untuk menguji pemahamanmu!")
+
+    score = 0
+
+    # Soal 1
+    q1 = st.radio("1. Berapa mol dari 20 gram NaCl (Mr = 58,5)?", [
+        "0,34 mol", "1,17 mol", "2,00 mol", "0,51 mol"
+    ])
+    if q1 == "0,34 mol":
+        score += 1
+
+    # Soal 2
+    q2 = st.radio("2. Jika [H⁺] = 1 × 10⁻⁴ mol/L, maka nilai pH-nya adalah?", [
+        "4", "3", "5", "10"
+    ])
+    if q2 == "4":
+        score += 1
+
+    # Soal 3
+    q3 = st.radio("3. Rumus pengenceran larutan adalah...", [
+        "M₁ + V₁ = M₂ + V₂", "M₁V₁ = M₂V₂", "M₁/M₂ = V₁/V₂", "M₁V₂ = M₂V₁"
+    ])
+    if q3 == "M₁V₁ = M₂V₂":
+        score += 1
+
+    # Soal 4
+    q4 = st.radio("4. Persen massa adalah perbandingan antara...", [
+        "massa zat dan volume larutan", "massa zat dan massa larutan", "volume zat dan massa larutan", "volume zat dan volume larutan"
+    ])
+    if q4 == "massa zat dan massa larutan":
+        score += 1
+
+    if st.button("🔍 Cek Jawaban"):
+        st.success(f"Skor kamu: {score}/4")
+        if score == 4:
+            st.balloons()
+            st.markdown("🎉 **Hebat! Kamu menguasai dasar-dasar kimia dengan baik!**")
+        elif score >= 2:
+            st.markdown("👍 **Bagus! Tapi masih bisa lebih baik. Coba lagi yuk!**")
+        else:
+            st.markdown("💡 **Ayo belajar lagi agar lebih paham konsep dasarnya.**")
 
 # ------------------ Footer ------------------
 st.markdown("---")
