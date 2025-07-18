@@ -1,43 +1,44 @@
 import streamlit as st
 import math
 
-# ------------------ Styling Modern ------------------
+# ------------------ Styling CSS ------------------
 st.markdown("""
     <style>
     .stApp {
-        background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url("https://i.imgur.com/BSBUvyu.jpeg");
+        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
+                          url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
         color: white;
-        font-family: 'Arial', sans-serif;
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
-    h1, h2, h3, h4, h5 { color: white !important; }
+    .stApp h1, h2, h3, h4, h5 { color: white !important; }
     label, .stMarkdown { color: white !important; }
     input[type="number"], input[type="text"] {
         color: black !important;
-        background-color: rgba(255,255,255,0.9) !important;
-        border-radius: 8px !important;
-        padding: 6px !important;
-        border: 1px solid #00ccff !important;
+        background-color: rgba(255,255,255,0.85) !important;
+        border-radius: 5px !important;
     }
-    .stButton>button {
+    .stButton button {
         background-color: black !important;
         color: white !important;
         border-radius: 8px !important;
         padding: 0.5rem 1rem !important;
     }
+    .stButton button:hover {
+        background-color: #333 !important;
+    }
     .custom-output {
-        background-color: rgba(255, 255, 255, 0.9);
-        color: #003366;
+        background-color: rgba(255, 255, 255, 0.85);
+        color: black;
         font-weight: bold;
-        padding: 12px;
-        border-radius: 12px;
+        padding: 10px;
+        border-radius: 10px;
         border: 2px solid #00ccff;
         text-align: center;
-        margin-top: 12px;
+        margin-top: 10px;
     }
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
@@ -66,7 +67,7 @@ if menu == "🏠 Beranda":
     st.markdown("""
     Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas, dan praktis.  
     Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu.  
-    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikum kamu!
+    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -84,48 +85,59 @@ elif menu == "👥 Tentang Kami":
 # ------------------ Tentang Aplikasi ------------------
 elif menu == "ℹ️ Tentang Aplikasi":
     st.subheader("📘 Tentang Aplikasi - ChemVerse")
-    st.markdown("### 🧪 Deskripsi Aplikasi")
-    st.markdown("""
-    ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
-    Dirancang untuk membantu perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi secara cepat dan akurat.
-    """)
-    st.markdown("### 🔍 Latar Belakang")
-    st.markdown("""
-    Di era Revolusi Industri 4.0, integrasi teknologi ke dalam pendidikan dan laboratorium sangat penting.  
-    ChemVerse hadir sebagai solusi untuk mempercepat perhitungan kimia dasar secara digital.
-    """)
-    st.markdown("### 🎯 Tujuan")
-    st.markdown("""
-    - Mempermudah perhitungan kimia dasar  
-    - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi  
-    - Menghemat waktu dalam kegiatan laboratorium  
-    - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa
-    """)
-    st.markdown("### ⚙️ Fitur Aplikasi")
-    st.markdown("""
-    1. Perhitungan Molaritas  
-    2. Perhitungan pH  
-    3. Pengenceran Larutan  
-    4. Perhitungan Persentase Konsentrasi
-    """)
-    st.markdown("### 🌟 Manfaat")
-    st.markdown("""
-    - Membantu proses belajar dan praktikum mandiri maupun kelompok  
-    - Menurunkan tingkat kesalahan hitung manual  
-    - Menghemat waktu dalam analisis kimia  
-    - Mendorong adaptasi teknologi digital di pendidikan dan industri
-    """)
+    tab = st.selectbox("Pilih Penjelasan", [
+        "🧪 Deskripsi",
+        "🔍 Latar Belakang",
+        "🎯 Tujuan",
+        "⚙️ Fitur",
+        "🌟 Manfaat"
+    ])
+
+    if tab == "🧪 Deskripsi":
+        st.markdown("""
+        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+        Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi dengan cepat dan akurat.
+        """)
+
+    elif tab == "🔍 Latar Belakang":
+        st.markdown("""
+        Di era Revolusi Industri 4.0, integrasi teknologi ke dalam dunia pendidikan dan laboratorium sangat penting.  
+        ChemVerse hadir sebagai solusi untuk mempermudah dan mempercepat proses perhitungan kimia dasar secara digital.
+        """)
+
+    elif tab == "🎯 Tujuan":
+        st.markdown("""
+        - Mempermudah perhitungan kimia dasar.  
+        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.  
+        - Menghemat waktu dalam kegiatan laboratorium.  
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.  
+        - Mendukung pelajar, mahasiswa, dosen, dan profesional industri.
+        """)
+
+    elif tab == "⚙️ Fitur":
+        st.markdown("""
+        1. Perhitungan Molaritas  
+        2. Perhitungan pH  
+        3. Pengenceran Larutan  
+        4. Perhitungan Persentase Konsentrasi
+        """)
+
+    elif tab == "🌟 Manfaat":
+        st.markdown("""
+        - Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
+        - Mengurangi kesalahan hitung manual dengan hasil yang akurat.  
+        - Menghemat waktu dalam analisis kimia.  
+        - Mendorong adaptasi teknologi digital di pendidikan dan industri kimia.
+        """)
 
 # ------------------ Hitung Mol ------------------
 elif menu == "🧪 Hitung Mol":
     st.header("🔹 Hitung Mol")
     st.markdown("*Rumus:* mol = massa / Mr")
-    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0, format="%.4f")
-    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01, format="%.4f")
+    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0)
+    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01)
     if st.button("Hitung"):
-        if massa == 0 or mr == 0:
-            st.warning("⚠️ Massa dan Mr harus lebih besar dari 0.")
-        else:
+        if massa > 0 and mr > 0:
             mol = massa / mr
             st.markdown(f"<div class='custom-output'>Mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
 
@@ -135,9 +147,7 @@ elif menu == "🧫 Hitung pH":
     st.markdown("*Rumus:* pH = -log[H⁺]")
     h_conc = st.number_input("Konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f")
     if st.button("Hitung"):
-        if h_conc <= 0:
-            st.warning("⚠️ Konsentrasi H⁺ harus lebih besar dari 0.")
-        else:
+        if h_conc > 0:
             ph = -math.log10(h_conc)
             st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
 
@@ -145,13 +155,11 @@ elif menu == "🧫 Hitung pH":
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
     st.markdown("*Rumus:* M₁V₁ = M₂V₂")
-    m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0, format="%.4f")
-    v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0, format="%.4f")
-    m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01, format="%.4f")
+    m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0)
+    v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0)
+    m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01)
     if st.button("Hitung"):
-        if m1 == 0 or v1 == 0 or m2 == 0:
-            st.warning("⚠️ Semua input harus lebih besar dari 0.")
-        else:
+        if m1 > 0 and v1 > 0 and m2 > 0:
             v2 = (m1 * v1) / m2
             st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
 
@@ -159,16 +167,15 @@ elif menu == "💧 Pengenceran Larutan":
 elif menu == "📊 Persentase Konsentrasi":
     st.header("🔹 Persentase Konsentrasi")
     st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
-    massa_zat = st.number_input("Massa zat (gram)", min_value=0.0, format="%.4f")
-    massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01, format="%.4f")
+    massa_zat = st.number_input("Massa zat (gram)", min_value=0.0)
+    massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01)
     if st.button("Hitung"):
-        if massa_zat == 0 or massa_larutan == 0:
-            st.warning("⚠️ Massa zat dan larutan harus lebih besar dari 0.")
-        elif massa_zat > massa_larutan:
-            st.error("❌ Massa zat tidak boleh lebih besar dari massa larutan.")
-        else:
-            persen = (massa_zat / massa_larutan) * 100
-            st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
+        if massa_zat > 0 and massa_larutan > 0:
+            if massa_zat <= massa_larutan:
+                persen = (massa_zat / massa_larutan) * 100
+                st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
+            else:
+                st.markdown("<div class='custom-output' style='border-color: red;'>❌ Massa zat tidak boleh lebih besar dari massa larutan.</div>", unsafe_allow_html=True)
 
 # ------------------ Footer ------------------
 st.markdown("---")
