@@ -56,9 +56,9 @@ menu = st.sidebar.selectbox("📘 Menu Navigasi", [
 if menu == "🏠 Beranda":
     st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
     st.markdown("""
-    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat,cerdas dan praktis. 
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan,praktikum dan penelitian kimiamu.
-    Yuk,manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
+    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas dan praktis.  
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum dan penelitian kimiamu.  
+    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -86,7 +86,7 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     if tab == "🧪 Deskripsi":
         st.markdown("""
-        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif,inovatif, dan cerdas.  
+        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
         Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi dengan cepat dan akurat.
         """)
 
@@ -99,32 +99,32 @@ elif menu == "ℹ️ Tentang Aplikasi":
     elif tab == "🎯 Tujuan":
         st.markdown("""
         - Mempermudah perhitungan kimia dasar.  
-        - Meningkatkan pemahaman konsep mol,ph,pengenceran, dan konsentrasi.  
-        - Menghemat waktu dalam kegiatan laboratorium.
-        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
-        - Untuk mendukung pelajar,mahasiswa,dosen,dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuintif.
+        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.  
+        - Menghemat waktu dalam kegiatan laboratorium.  
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.  
+        - Untuk mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
         """)
 
     elif tab == "⚙️ Fitur":
         st.markdown("""
-        1. Perhitungan Molaritas 
-        2. Perhitungan pH
-        3. Pengenceran Larutan 
-        4. Perhitungan Persentase Konsentrasi 
+        1. Perhitungan Molaritas  
+        2. Perhitungan pH  
+        3. Pengenceran Larutan  
+        4. Perhitungan Persentase Konsentrasi  
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
-        - Membantu proses belajar dan praktikum secara  mandiri maupun kelompok.  
-        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
-        - Menghemat waktu dalam analisis kimia.   
-        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industi kimia.
+        - Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
+        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.  
+        - Menghemat waktu dalam analisis kimia.  
+        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
         """)
 
 # ------------------ Hitung Mol ------------------
 elif menu == "🧪 Hitung Mol":
     st.header("🔹 Hitung Mol")
-     st.markdown("*Rumus:* mol = massa / Mr")
+    st.markdown("*Rumus:* mol = massa / Mr")
     massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0)
     mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01)
     if massa > 0 and mr > 0:
@@ -140,10 +140,10 @@ elif menu == "🧫 Hitung pH":
         ph = -math.log10(h_conc)
         st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
 
-# ------------------ Pengenceran ------------------
+# ------------------ Pengenceran Larutan ------------------
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
-     st.markdown("*Rumus:* M₁V₁ = M₂V₂")
+    st.markdown("*Rumus:* M₁V₁ = M₂V₂")
     m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0)
     v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0)
     m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01)
@@ -154,7 +154,7 @@ elif menu == "💧 Pengenceran Larutan":
 # ------------------ Persentase Konsentrasi ------------------
 elif menu == "📊 Persentase Konsentrasi":
     st.header("🔹 Persentase Konsentrasi")
-     st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
+    st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
     massa_zat = st.number_input("Massa zat (gram)", min_value=0.0)
     massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01)
     if massa_zat > 0 and massa_larutan > 0:
