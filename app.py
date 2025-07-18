@@ -10,22 +10,17 @@ st.markdown("""
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
-        color: black;
+        color: white;
     }
-
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
-
-    h1, h2, h3, h4, h5 { color: black !important; }
-
-    label, .stMarkdown, .css-10trblm, .css-1y4p8pa { color: black !important; }
-
+    .stApp h1, h2, h3, h4, h5 { color: white !important; }
+    label, .stMarkdown { color: white !important; }
     input[type="number"], input[type="text"] {
         color: black !important;
         background-color: rgba(255,255,255,0.85) !important;
         border-radius: 5px !important;
     }
-
     .custom-output {
         background-color: rgba(255, 255, 255, 0.85);
         color: black;
@@ -36,17 +31,9 @@ st.markdown("""
         text-align: center;
         margin-top: 10px;
     }
-
-    /* Sidebar styling */
     [data-testid="stSidebar"] {
         background-image: linear-gradient(135deg, #cceeff 0%, #99ccff 100%);
         color: black;
-    }
-
-    [data-testid="stSidebar"] label,
-    [data-testid="stSidebar"] .css-17eq0hr {
-        color: black !important;
-        font-weight: bold;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -69,9 +56,9 @@ menu = st.sidebar.selectbox("📘 Menu Navigasi", [
 if menu == "🏠 Beranda":
     st.header("Selamat datang di ChemVerse - Aplikasi Kimia Pintar 🎉")
     st.markdown("""
-    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat, cerdas dan praktis.  
-    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan, praktikum, dan penelitian kimiamu.  
-    Yuk, manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
+    Bersama aplikasi ini, mari wujudkan perhitungan kimia yang cepat,cerdas dan praktis. 
+    Aplikasi ini dirancang untuk mendukung aktivitas perkuliahan,praktikum dan penelitian kimiamu.
+    Yuk,manfaatkan ChemVerse sebagai sahabat belajar dan praktikummu.
     """)
 
 # ------------------ Tentang Kami ------------------
@@ -99,7 +86,7 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     if tab == "🧪 Deskripsi":
         st.markdown("""
-        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif, inovatif, dan cerdas.  
+        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif,inovatif, dan cerdas.  
         Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi dengan cepat dan akurat.
         """)
 
@@ -112,26 +99,26 @@ elif menu == "ℹ️ Tentang Aplikasi":
     elif tab == "🎯 Tujuan":
         st.markdown("""
         - Mempermudah perhitungan kimia dasar.  
-        - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.  
-        - Menghemat waktu dalam kegiatan laboratorium.  
-        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.  
-        - Mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
+        - Meningkatkan pemahaman konsep mol,ph,pengenceran, dan konsentrasi.  
+        - Menghemat waktu dalam kegiatan laboratorium.
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
+        - Untuk mendukung pelajar,mahasiswa,dosen,dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuintif.
         """)
 
     elif tab == "⚙️ Fitur":
         st.markdown("""
-        1. Perhitungan Molaritas  
-        2. Perhitungan pH  
-        3. Pengenceran Larutan  
-        4. Perhitungan Persentase Konsentrasi  
+        1. Perhitungan Molaritas 
+        2. Perhitungan pH
+        3. Pengenceran Larutan 
+        4. Perhitungan Persentase Konsentrasi 
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
-        - Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
-        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan lebih akurat.  
-        - Menghemat waktu dalam analisis kimia.  
-        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
+        - Membantu proses belajar dan praktikum secara  mandiri maupun kelompok.  
+        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
+        - Menghemat waktu dalam analisis kimia.   
+        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industi kimia.
         """)
 
 # ------------------ Hitung Mol ------------------
@@ -176,6 +163,6 @@ elif menu == "📊 Persentase Konsentrasi":
 # ------------------ Footer ------------------
 st.markdown("---")
 st.markdown(
-    "<div style='text-align: center; color: black;'>© 2025 ChemVerse | Dibuat oleh Kelompok 3</div>",
+    "<div style='text-align: center; color: white;'>© 2025 ChemVerse | Dibuat oleh Kelompok 3</div>",
     unsafe_allow_html=True
 )
