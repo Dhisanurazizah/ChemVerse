@@ -5,13 +5,12 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)),
+        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
         color: white;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
     header[data-testid="stHeader"] { background: transparent !important; }
     .block-container { padding-top: 1rem !important; }
@@ -19,28 +18,8 @@ st.markdown("""
     label, .stMarkdown { color: white !important; }
     input[type="number"], input[type="text"] {
         color: black !important;
-        background-color: rgba(255,255,255,0.9) !important;
+        background-color: rgba(255,255,255,0.85) !important;
         border-radius: 5px !important;
-    }
-    .stButton button {
-        background-color: #004d40 !important;
-        color: white !important;
-        border-radius: 8px !important;
-        padding: 0.4rem 1rem !important;
-        font-weight: bold;
-    }
-    .stButton button:hover {
-        background-color: #00695c !important;
-    }
-    .reset-btn button {
-        background-color: #c62828 !important;
-        color: white !important;
-        border-radius: 8px !important;
-        padding: 0.4rem 1rem !important;
-        font-weight: bold;
-    }
-    .reset-btn button:hover {
-        background-color: #b71c1c !important;
     }
     .custom-output {
         background-color: rgba(255, 255, 255, 0.85);
@@ -48,13 +27,17 @@ st.markdown("""
         font-weight: bold;
         padding: 10px;
         border-radius: 10px;
-        border: 2px solid #009688;
+        border: 2px solid #00ccff;
         text-align: center;
         margin-top: 10px;
     }
     [data-testid="stSidebar"] {
-        background-image: linear-gradient(135deg, #e0f2f1 0%, #b2dfdb 100%);
-        color: black;
+        background: linear-gradient(135deg, #0d47a1, #1976d2, #42a5f5); /* Modern Blue Gradient */
+        color: white;
+    }
+    [data-testid="stSidebar"] .css-1d391kg, [data-testid="stSidebar"] .css-1v0mbdj {
+        color: white !important; /* Menu Navigasi text */
+        font-weight: bold;
     }
     </style>
 """, unsafe_allow_html=True)
@@ -121,100 +104,41 @@ elif menu == "ℹ️ Tentang Aplikasi":
         st.markdown("""
         - Mempermudah perhitungan kimia dasar.  
         - Meningkatkan pemahaman konsep mol, pH, pengenceran, dan konsentrasi.  
-        - Menghemat waktu dalam kegiatan laboratorium.  
-        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.  
-        - Mendukung pelajar, mahasiswa, dosen, dan profesional industri.
+        - Menghemat waktu dalam kegiatan laboratorium.
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
+        - Untuk mendukung pelajar, mahasiswa, dosen, dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuitif.
         """)
 
     elif tab == "⚙️ Fitur":
         st.markdown("""
-        1. Perhitungan Molaritas  
-        2. Perhitungan pH  
-        3. Pengenceran Larutan  
-        4. Perhitungan Persentase Konsentrasi
+        1. Perhitungan Molaritas 
+        2. Perhitungan pH
+        3. Pengenceran Larutan 
+        4. Perhitungan Persentase Konsentrasi 
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
         - Membantu proses belajar dan praktikum secara mandiri maupun kelompok.  
-        - Mengurangi kesalahan hitung manual dengan hasil yang akurat.  
-        - Menghemat waktu dalam analisis kimia.  
-        - Mendorong adaptasi teknologi digital di pendidikan dan industri kimia.
+        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
+        - Menghemat waktu dalam analisis kimia.   
+        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industri kimia.
         """)
 
 # ------------------ Hitung Mol ------------------
 elif menu == "🧪 Hitung Mol":
     st.header("🔹 Hitung Mol")
     st.markdown("*Rumus:* mol = massa / Mr")
-    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0, key="massa")
-    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01, key="mr")
-    
-    col1, col2 = st.columns(2)
-    if col1.button("Hitung"):
-        if massa == 0 or mr == 0:
-            st.warning("⚠️ Masukkan semua nilai dengan benar sebelum menghitung.")
-        else:
+    massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0)
+    mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01)
+    if st.button("Hitung"):
+        if massa > 0 and mr > 0:
             mol = massa / mr
             st.markdown(f"<div class='custom-output'>Mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
-
-    if col2.button("Reset", key="reset_mol"):
-        st.rerun()
-
-# ------------------ Hitung pH ------------------
-elif menu == "🧫 Hitung pH":
-    st.header("🔹 Hitung pH")
-    st.markdown("*Rumus:* pH = -log[H⁺]")
-    h_conc = st.number_input("Konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f", key="h_conc")
-    
-    col1, col2 = st.columns(2)
-    if col1.button("Hitung"):
-        if h_conc <= 0:
-            st.warning("⚠️ Konsentrasi H⁺ harus lebih besar dari 0.")
         else:
-            ph = -math.log10(h_conc)
-            st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
-
-    if col2.button("Reset", key="reset_ph"):
-        st.rerun()
-
-# ------------------ Pengenceran ------------------
-elif menu == "💧 Pengenceran Larutan":
-    st.header("🔹 Pengenceran Larutan")
-    st.markdown("*Rumus:* M₁V₁ = M₂V₂")
-    m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0, key="m1")
-    v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0, key="v1")
-    m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01, key="m2")
-    
-    col1, col2 = st.columns(2)
-    if col1.button("Hitung"):
-        if m1 == 0 or v1 == 0 or m2 == 0:
-            st.warning("⚠️ Masukkan semua nilai dengan benar sebelum menghitung.")
-        else:
-            v2 = (m1 * v1) / m2
-            st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
-
-    if col2.button("Reset", key="reset_pengenceran"):
-        st.rerun()
-
-# ------------------ Persentase Konsentrasi ------------------
-elif menu == "📊 Persentase Konsentrasi":
-    st.header("🔹 Persentase Konsentrasi")
-    st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
-    massa_zat = st.number_input("Massa zat (gram)", min_value=0.0, key="massa_zat")
-    massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01, key="massa_larutan")
-    
-    col1, col2 = st.columns(2)
-    if col1.button("Hitung"):
-        if massa_zat == 0 or massa_larutan == 0:
-            st.warning("⚠️ Masukkan semua nilai dengan benar sebelum menghitung.")
-        elif massa_zat > massa_larutan:
-            st.warning("⚠️ Massa zat tidak boleh lebih besar dari massa larutan.")
-        else:
-            persen = (massa_zat / massa_larutan) * 100
-            st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
-
-    if col2.button("Reset", key="reset_konsentrasi"):
-        st.rerun()
+            st.warning("Masukkan nilai yang valid untuk massa dan Mr.")
+    if st.button("Reset"):
+        st.experimental_rerun()
 
 # ------------------ Footer ------------------
 st.markdown("---")
