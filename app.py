@@ -5,12 +5,20 @@ import math
 st.markdown("""
     <style>
     .stApp {
-        background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        background-image: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.75)),
                           url("https://i.imgur.com/BSBUvyu.jpeg");
         background-size: cover;
         background-attachment: fixed;
         background-position: center;
         color: white;
+    }
+
+    header[data-testid="stHeader"] {
+        background: transparent !important;
+    }
+
+    .block-container {
+        padding-top: 1rem !important;
     }
 
     .stApp h1, .stApp h2, .stApp h3, .stApp h4, .stApp h5, .stApp h6 {
@@ -48,10 +56,6 @@ st.markdown("""
     section[data-testid="stSidebar"] label {
         color: black !important;
         font-weight: bold;
-    }
-
-    ul {
-        margin-left: 20px;
     }
     </style>
 """, unsafe_allow_html=True)
