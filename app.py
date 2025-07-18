@@ -85,7 +85,7 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     if tab == "🧪 Deskripsi":
         st.markdown("""
-        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif dan modern.  
+        ChemVerse adalah aplikasi kalkulator kimia digital yang interaktif,inovatif, dan cerdas.  
         Aplikasi ini dirancang untuk membantu dalam perhitungan mol, pH, pengenceran larutan, dan persentase konsentrasi dengan cepat dan akurat.
         """)
 
@@ -97,25 +97,27 @@ elif menu == "ℹ️ Tentang Aplikasi":
 
     elif tab == "🎯 Tujuan":
         st.markdown("""
-        - Mempermudah perhitungan kimia secara digital.  
-        - Meningkatkan akurasi dan efisiensi dalam pembelajaran dan praktikum.  
-        - Memberikan pengalaman belajar kimia yang modern dan praktis.
+        - Mempermudah perhitungan kimia dasar.  
+        - Meningkatkan pemahaman konsep mol,ph,pengenceran, dan konsentrasi.  
+        - Menghemat waktu dalam kegiatan laboratorium.
+        - Menyediakan alat bantu praktis dan responsif untuk pelajar dan mahasiswa.
+        - Untuk mendukung pelajar,mahasiswa,dosen,dan profesional industri dalam memahami dan mengaplikasikan konsep kimia secara efisien dan intuintif.
         """)
 
     elif tab == "⚙️ Fitur":
         st.markdown("""
-        1. Perhitungan mol dari massa dan Mr  
-        2. Hitung pH dari konsentrasi ion H⁺  
-        3. Kalkulasi pengenceran larutan  
-        4. Persentase konsentrasi zat dalam larutan
+        1. Perhitungan Molaritas 
+        2. Perhitungan pH
+        3. Pengenceran Larutan 
+        4. Perhitungan Persentase Konsentrasi 
         """)
 
     elif tab == "🌟 Manfaat":
         st.markdown("""
-        - Menghemat waktu perhitungan  
-        - Meminimalisir kesalahan manual  
-        - Mendukung pembelajaran mandiri dan praktikum  
-        - Meningkatkan minat belajar kimia dengan teknologi
+        - Membantu proses belajar dan praktikum secara  mandiri maupun kelompok.  
+        - Menurunkan tingkat kesalahan hitung manual, sehingga hasil perhitungan yang didapat akurat.
+        - Menghemat waktu dalam analisis kimia.   
+        - Mendorong adaptasi teknologi digital di dunia pendidikan dan industi kimia.
         """)
 
 # ------------------ Hitung Mol ------------------
