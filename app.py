@@ -124,6 +124,7 @@ elif menu == "ℹ️ Tentang Aplikasi":
 # ------------------ Hitung Mol ------------------
 elif menu == "🧪 Hitung Mol":
     st.header("🔹 Hitung Mol")
+     st.markdown("*Rumus:* mol = massa / Mr")
     massa = st.number_input("Masukkan massa zat (gram)", min_value=0.0)
     mr = st.number_input("Masukkan massa molar (Mr)", min_value=0.01)
     if massa > 0 and mr > 0:
@@ -133,6 +134,7 @@ elif menu == "🧪 Hitung Mol":
 # ------------------ Hitung pH ------------------
 elif menu == "🧫 Hitung pH":
     st.header("🔹 Hitung pH")
+    st.markdown("*Rumus:* pH = -log[H⁺]")
     h_conc = st.number_input("Konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f")
     if h_conc > 0:
         ph = -math.log10(h_conc)
@@ -141,6 +143,7 @@ elif menu == "🧫 Hitung pH":
 # ------------------ Pengenceran ------------------
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
+     st.markdown("*Rumus:* M₁V₁ = M₂V₂")
     m1 = st.number_input("Konsentrasi awal (M₁)", min_value=0.0)
     v1 = st.number_input("Volume awal (V₁) [mL]", min_value=0.0)
     m2 = st.number_input("Konsentrasi akhir (M₂)", min_value=0.01)
@@ -151,6 +154,7 @@ elif menu == "💧 Pengenceran Larutan":
 # ------------------ Persentase Konsentrasi ------------------
 elif menu == "📊 Persentase Konsentrasi":
     st.header("🔹 Persentase Konsentrasi")
+     st.markdown("*Rumus:* (massa zat / massa larutan) × 100%")
     massa_zat = st.number_input("Massa zat (gram)", min_value=0.0)
     massa_larutan = st.number_input("Massa larutan total (gram)", min_value=0.01)
     if massa_zat > 0 and massa_larutan > 0:
