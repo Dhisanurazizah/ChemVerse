@@ -36,16 +36,15 @@ st.markdown("""
         border-radius: 5px !important;
     }
 
-    .stAlert-success {
-        background-color: rgba(0, 128, 0, 0.7) !important;
-        color: white !important;
+    .custom-output {
+        background-color: rgba(255, 255, 255, 0.85);
+        color: black;
         font-weight: bold;
-    }
-
-    .stAlert-danger {
-        background-color: rgba(255, 0, 0, 0.6) !important;
-        color: white !important;
-        font-weight: bold;
+        padding: 10px;
+        border-radius: 10px;
+        border: 2px solid #00ccff;
+        text-align: center;
+        margin-top: 10px;
     }
 
     [data-testid="stSidebar"] {
@@ -119,20 +118,20 @@ elif menu == "🧪 Hitung Mol":
 
     if massa > 0 and mr > 0:
         mol = massa / mr
-        st.success(f"Jumlah mol = {mol:.4f} mol")
+        st.markdown(f"<div class='custom-output'>Jumlah mol = {mol:.4f} mol</div>", unsafe_allow_html=True)
 
 # ------------------ Hitung pH ------------------
 elif menu == "🧫 Hitung pH":
     st.header("🔹 Hitung pH")
     st.markdown("**Rumus:** `pH = -log[H⁺]`")
 
-    h_concentration = st.number_input("Masukkan konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f")
+    h_conc = st.number_input("Masukkan konsentrasi ion H⁺ (mol/L)", min_value=0.0, format="%.10f")
 
-    if h_concentration > 0:
-        ph = -math.log10(h_concentration)
-        st.success(f"pH = {ph:.2f}")
+    if h_conc > 0:
+        ph = -math.log10(h_conc)
+        st.markdown(f"<div class='custom-output'>pH = {ph:.2f}</div>", unsafe_allow_html=True)
 
-# ------------------ Pengenceran Larutan ------------------
+# ------------------ Pengenceran ------------------
 elif menu == "💧 Pengenceran Larutan":
     st.header("🔹 Pengenceran Larutan")
     st.markdown("**Rumus:** `M₁V₁ = M₂V₂`")
@@ -143,7 +142,7 @@ elif menu == "💧 Pengenceran Larutan":
 
     if m1 > 0 and v1 > 0 and m2 > 0:
         v2 = (m1 * v1) / m2
-        st.success(f"Volume akhir (V₂) = {v2:.2f} mL")
+        st.markdown(f"<div class='custom-output'>Volume akhir (V₂) = {v2:.2f} mL</div>", unsafe_allow_html=True)
 
 # ------------------ Persentase Konsentrasi ------------------
 elif menu == "📊 Persentase Konsentrasi":
@@ -156,9 +155,9 @@ elif menu == "📊 Persentase Konsentrasi":
     if massa_zat > 0 and massa_larutan > 0:
         if massa_zat <= massa_larutan:
             persen = (massa_zat / massa_larutan) * 100
-            st.success(f"Persentase Konsentrasi = {persen:.2f}%")
+            st.markdown(f"<div class='custom-output'>Persentase Konsentrasi = {persen:.2f}%</div>", unsafe_allow_html=True)
         else:
-            st.error("❌ Massa zat tidak boleh lebih besar dari massa larutan.")
+            st.markdown("<div class='custom-output' style='border-color: red;'>❌ Massa zat tidak boleh lebih besar dari massa larutan.</div>", unsafe_allow_html=True)
 
 # ------------------ Footer ------------------
 st.markdown("---")
